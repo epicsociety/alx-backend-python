@@ -2,11 +2,11 @@
 
 understanding the asyncio library with the async and await
 
-[Async IO in Python: A Complete Walkthrough]https://realpython.com/async-io-python/
+[Async IO in Python: A Complete Walkthrough](https://realpython.com/async-io-python/)
 
-[asyncio - Asynchronous I/O]https://docs.python.org/3/library/asyncio.html
+[asyncio - Asynchronous I/O](https://docs.python.org/3/library/asyncio.html)
 
-Directory also touches on using random library specifically [random.uniform]https://docs.python.org/3/library/random.html#random.uniform
+Directory also touches on using random library specifically [random.uniform](https://docs.python.org/3/library/random.html#random.uniform)
 
 ## Basically
 
