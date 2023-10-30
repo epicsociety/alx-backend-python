@@ -17,7 +17,6 @@ get_json = __import__("utils").get_json
 memoize = __import__("utils").memoize
 
 
-
 class TestAccessNestedMap(unittest.TestCase):
     """class set up to implement the test methods"""
     @parameterized.expand([
@@ -68,6 +67,7 @@ class TestGetJson(unittest.TestCase):
 
                 self.assertEqual(result, payload)
                 mock_get.assert_called_once_with(url)
+
 
 class TestMemoize(unittest.TestCase):
     """ class has a test_memoize method"""
