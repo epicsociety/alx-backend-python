@@ -23,5 +23,4 @@ class TestAccessNestedMap(unittest.TestCase):
     def test_access_nested_map(self, map: Mapping, path: Sequence,
                                nested_map: Mapping) -> bool:
         """ The testing method """
-        produced_map = access_nested_map(map, path)
-        self.assertEqual(self, produced_map, nested_map)
+        self.assertEqual(access_nested_map(map, path), nested_map)
