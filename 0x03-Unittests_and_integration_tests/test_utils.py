@@ -5,7 +5,7 @@ Module contain tests cases set up with parameterized.expand
 
 
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 from typing import (
     Mapping,
     Sequence,
@@ -41,16 +41,28 @@ class TestAccessNestedMap(unittest.TestCase):
 class TestGetJson(unittest.TestCase):
     """
     """
-    @patch('utils.requests.get')
     @parameterized.expand([
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False})
     ])
-    def test_get_json(self, test_url, test_payload, mock_get):
+    def test_get_json(self, test_url, test_payload):
+        """ Checks whether utils.get_json return expected output
         """
-        """
-        mock_get.return_value.json.return_value = test_payload
 
-        result = get_json(test_url)
-        mock_get.assert_called_once_with(test_url)
-        self.assertEqual(result, test_payload)
+    def test_get_json(self):
+        test_cases = [
+            ("http://example.com", {"payload": True}),
+            ("http://holberton.io", {"payload": False})
+        ]
+
+        for url, payload in test_cases:
+            with patch("requests.get") as mock_get:
+                # Create a Mock object to simulate the response
+                mock_response = Mock()
+                mock_response.json.return_value = payload
+                mock_get.return_value = mock_response
+
+                result = get_json(url)
+
+                self.assertEqual(result, payload)
+                mock_get.assert_called_once_with(url)
